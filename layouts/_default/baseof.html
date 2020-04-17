@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Site.Title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  {{ $styles := resources.Get "styles/tailwind.pcss" | toCSS | postCSS }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}">
+</head>
+
+<body class="flex flex-col min-h-screen font-pt-sans-narrow">
+  <nav class="flex items-center justify-end px-4 py-2 fixed top-0 left-0 w-full">
+    <a  class="ml-4" href="" target="_blank">
+      <img src='{{ "images/tw.svg" | absURL }}' alt="">
+    </a>
+    <a  class="ml-4" href="" target="_blank">
+      <img src='{{ "images/mail.svg" | absURL }}' alt="">
+    </a>
+    <a  class="ml-4" href="" target="_blank">
+      <img src='{{ "images/fb.svg" | absURL }}' alt="">
+    </a>
+  </nav>
+  <main class="flex-grow">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    <div class="flex flex-wrap items-center bg-mine-shaft px-16 py-12">
+      <div class="w-full md:w-1/3 flex flex-col items-center text-white">
+        <img class="w-24" src='{{ "images/logo.svg" | absURL }}' alt="">
+      </div>
+      <div class="w-full md:w-1/3 flex flex-col items-center text-white mt-10 md:mt-0">
+        <p class="uppercase text-xl font-bold">Comparte</p>
+        <div class="flex items-center mt-4">
+          <a class="mr-4" href="https://twitter.com/datasketch" target="_blank" rel="noopener noreferrer">
+            <img src='{{ "images/tw.svg" | absURL }}' alt="">
+          </a>
+          <a class="mr-4" href="mailto:info@datasketch.co">
+            <img src='{{ "images/mail.svg" | absURL }}' alt="">
+          </a>
+          <a class="mr-0" href="https://es-la.facebook.com/datasketch/" target="_blank" rel="noopener noreferrer">
+            <img src='{{ "images/fb.svg" | absURL }}' alt="">
+          </a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3 flex flex-col items-center text-white mt-10 md:mt-0">
+        <div class="flex items-center">
+          <img class="mr-4" src='{{ "images/cc.svg" | absURL }}'>
+          <img class="mr-4" src='{{ "images/by.svg" | absURL }}'>
+          <img class="mr-0" src='{{ "images/sa.svg" | absURL }}'>
+        </div>
+        <p class="mt-4 w-64 font-pt-sans-narrow text-sm">Todo el material en esta página es <a
+            href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>. Si reusas o adaptas recursos de esta
+          página, por favor vincula y referencia nuestro artículo o sitio web.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
