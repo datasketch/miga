@@ -4,6 +4,7 @@ module.exports = {
       colors: {
         eden: '#134f4b',
         elephant: '#0e3b3a',
+        ebb: '#f4f1f1',
         'mine-shaft': '#232323',
         paper: '#fbf9f9',
         mercury: '#e3e2e2'

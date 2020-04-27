@@ -30,7 +30,7 @@
   </div>
 </div>
 <!---->
-<div class="py-16 bg-paper px-4">
+<div class="py-16 bg-paper px-4" x-data="{ grid: true }">
   <div class="md:mx-auto md:w-5/6">
     <div>
       <p class="uppercase text-elephant font-bold text-xl tracking-wider">Filtros</p>
@@ -46,56 +46,56 @@
         <h2 class="uppercase text-3xl font-bold tracking-wide text-mercury text-center xl:text-4xl">Resultados</h2>
       </div>
       <div class="flex items-center w-1/3 justify-end">
-        <button><img src='{{ "images/grid-view.svg" | absURL }}' alt=""></button>
-        <button class="ml-4"><img src='{{ "images/list-view.svg" | absURL }}' alt=""></button>
+        <button @click="grid = true"><img src='{{ "images/grid-view.svg" | absURL }}' alt=""></button>
+        <button @click="grid = false" class="ml-4"><img src='{{ "images/list-view.svg" | absURL }}' alt=""></button>
       </div>
     </div>
-    <div class="mt-6 grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      <!-- card -->
-      <div class="card-grid">
-        <div class="card-grid-content">
-          <h3 class="card-grid-title">Datos de consumo individual de alimentos</h3>
-          <p class="card-grid-meta">Autor: Miga</p>
-          <div class="card-grid-description">
-            <p>La División de Nutrición y Sistemas Alimentarios de la FAO (ESN), en asociación con la División de...
-            </p>
-          </div>
-        </div>
-        <div class="card-grid-actions">
-          <button class="card-grid-btn bg-eden">Ver</button>
-          <button class="card-grid-btn bg-elephant">Descargar</button>
-        </div>
+    <div class="mt-6">
+      <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" x-show="grid">
+        <!-- card -->
+        {{ partial "card-box.html" . }}
+        <!-- card -->
+        {{ partial "card-box.html" . }}
+        <!-- card -->
+        {{ partial "card-box.html" . }}
       </div>
-      <!-- card -->
-      <div class="card-grid">
-        <div class="card-grid-content">
-          <h3 class="card-grid-title">Herramienta mundial de datos de consumo individual de
-            alimentos</h3>
-          <p class="card-grid-meta">Autor: Miga</p>
-          <div class="card-grid-description">
-            <p>La División de Nutrición y Sistemas Alimentarios de la FAO (ESN), en asociación con la División de...
-            </p>
-          </div>
-        </div>
-        <div class="card-grid-actions">
-          <button class="card-grid-btn bg-eden">Ver</button>
-          <button class="card-grid-btn bg-elephant">Descargar</button>
-        </div>
-      </div>
-      <!-- card -->
-      <div class="card-grid">
-        <div class="card-grid-content">
-          <h3 class="card-grid-title">Datos de consumo individual de alimentos</h3>
-          <p class="card-grid-meta">Autor: Miga</p>
-          <div class="card-grid-description">
-            <p>La División de Nutrición y Sistemas Alimentarios de la FAO (ESN), en asociación con la División de...
-            </p>
-          </div>
-        </div>
-        <div class="card-grid-actions">
-          <button class="card-grid-btn bg-eden">Ver</button>
-          <button class="card-grid-btn bg-elephant">Descargar</button>
-        </div>
+      <div x-show="!grid" class="overflow-x-auto">
+        <table class="w-full table-fixed">
+          <thead>
+            <tr class="bg-elephant text-white text-left text-lg">
+              <th class="px-4 py-2">Nombre</th>
+              <th class="px-4 py-2">Organizaciones</th>
+              <th class="px-4 py-2">Etiquetas</th>
+              <th class="px-4 py-2">Fecha creación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-4 py-2 truncate">Datos de consumo individual de alimentos</td>
+              <td class="px-4 py-2">Miga</td>
+              <td class="px-4 py-2 truncate">alimentos, consumo</td>
+              <td class="px-4 py-2">2020-12-31</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 truncate">Datos de consumo individual de alimentos</td>
+              <td class="px-4 py-2">Miga</td>
+              <td class="px-4 py-2 truncate">alimentos, consumo</td>
+              <td class="px-4 py-2">2020-12-31</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 truncate">Datos de consumo individual de alimentos</td>
+              <td class="px-4 py-2">Miga</td>
+              <td class="px-4 py-2 truncate">alimentos, consumo</td>
+              <td class="px-4 py-2">2020-12-31</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2 truncate">Datos de consumo individual de alimentos</td>
+              <td class="px-4 py-2">Miga</td>
+              <td class="px-4 py-2 truncate">alimentos, consumo</td>
+              <td class="px-4 py-2">2020-12-31</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
