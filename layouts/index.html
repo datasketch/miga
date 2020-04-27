@@ -32,9 +32,18 @@
 <!---->
 <div class="py-16 bg-paper px-4">
   <div class="md:mx-auto md:w-5/6">
-    <div class="flex items-center justify-end">
+    <div>
+      <p class="uppercase text-elephant font-bold text-xl tracking-wider">Filtros</p>
+      <div>
+        <div class="search">
+          <input type="text" class="search-input" placeholder="Buscar dataset">
+          <img src='{{ "images/search.svg" | absURL }}' alt="" class="search-icon">
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-end mt-6">
       <div class="w-1/3">
-        <h2 class="uppercase text-3xl font-bold tracking-wide text-gray-600 text-center xl:text-4xl">Resultados</h2>
+        <h2 class="uppercase text-3xl font-bold tracking-wide text-mercury text-center xl:text-4xl">Resultados</h2>
       </div>
       <div class="flex items-center w-1/3 justify-end">
         <button><img src='{{ "images/grid-view.svg" | absURL }}' alt=""></button>
@@ -43,49 +52,49 @@
     </div>
     <div class="mt-6 grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <!-- card -->
-      <div class="bg-white shadow h-full flex flex-col">
-        <div class="px-6 pt-8 flex-grow">
-          <h3 class="leading-none font-bold text-xl xl:text-3xl">Datos de consumo individual de alimentos</h3>
-          <p class="text-gray-600 text-base xl:text-lg">Autor: Miga</p>
-          <div class="mt-2 pb-6">
+      <div class="card-grid">
+        <div class="card-grid-content">
+          <h3 class="card-grid-title">Datos de consumo individual de alimentos</h3>
+          <p class="card-grid-meta">Autor: Miga</p>
+          <div class="card-grid-description">
             <p>La División de Nutrición y Sistemas Alimentarios de la FAO (ESN), en asociación con la División de...
             </p>
           </div>
         </div>
-        <div class="flex text-white text-lg">
-          <button class="w-1/2 bg-eden uppercase font-bold">Ver</button>
-          <button class="w-1/2 bg-elephant uppercase font-bold">Descargar</button>
+        <div class="card-grid-actions">
+          <button class="card-grid-btn bg-eden">Ver</button>
+          <button class="card-grid-btn bg-elephant">Descargar</button>
         </div>
       </div>
       <!-- card -->
-      <div class="bg-white shadow h-full flex flex-col">
-        <div class="px-6 pt-8 flex-grow">
-          <h3 class="leading-none font-bold text-xl xl:text-3xl">Herramienta mundial de datos de consumo individual de
+      <div class="card-grid">
+        <div class="card-grid-content">
+          <h3 class="card-grid-title">Herramienta mundial de datos de consumo individual de
             alimentos</h3>
-          <p class="text-gray-600 text-base xl:text-lg">Autor: Miga</p>
-          <div class="mt-2 pb-6">
+          <p class="card-grid-meta">Autor: Miga</p>
+          <div class="card-grid-description">
             <p>La División de Nutrición y Sistemas Alimentarios de la FAO (ESN), en asociación con la División de...
             </p>
           </div>
         </div>
-        <div class="flex text-white text-lg">
-          <button class="w-1/2 bg-eden uppercase font-bold">Ver</button>
-          <button class="w-1/2 bg-elephant uppercase font-bold">Descargar</button>
+        <div class="card-grid-actions">
+          <button class="card-grid-btn bg-eden">Ver</button>
+          <button class="card-grid-btn bg-elephant">Descargar</button>
         </div>
       </div>
       <!-- card -->
-      <div class="bg-white shadow h-full flex flex-col">
-        <div class="px-6 pt-8 flex-grow">
-          <h3 class="leading-none font-bold text-xl xl:text-3xl">Datos de consumo individual de alimentos</h3>
-          <p class="text-gray-600 text-base xl:text-lg">Autor: Miga</p>
-          <div class="mt-2 pb-6">
+      <div class="card-grid">
+        <div class="card-grid-content">
+          <h3 class="card-grid-title">Datos de consumo individual de alimentos</h3>
+          <p class="card-grid-meta">Autor: Miga</p>
+          <div class="card-grid-description">
             <p>La División de Nutrición y Sistemas Alimentarios de la FAO (ESN), en asociación con la División de...
             </p>
           </div>
         </div>
-        <div class="flex text-white text-lg">
-          <button class="w-1/2 bg-eden uppercase font-bold">Ver</button>
-          <button class="w-1/2 bg-elephant uppercase font-bold">Descargar</button>
+        <div class="card-grid-actions">
+          <button class="card-grid-btn bg-eden">Ver</button>
+          <button class="card-grid-btn bg-elephant">Descargar</button>
         </div>
       </div>
     </div>

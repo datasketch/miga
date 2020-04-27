@@ -2,15 +2,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        eden: '#144f4b',
+        eden: '#134f4b',
         elephant: '#0e3b3a',
         'mine-shaft': '#232323',
         paper: '#fbf9f9',
+        mercury: '#e3e2e2'
       },
       fontFamily: {
         'pt-sans-narrow': ['"PT Sans Narrow"', 'sans-serif'],
         'source-serif': ['"Source Serif Pro"', 'serif'],
-      },
+      }
     },
   },
   variants: {},

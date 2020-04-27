@@ -5,4 +5,66 @@
   background-image: url('/images/bg.webp');
   @apply bg-cover bg-center bg-no-repeat px-4 py-32;
 }
+
+.card-grid {
+  @apply bg-white shadow h-full flex flex-col;
+}
+
+.card-grid-content {
+  @apply px-6 pt-8 flex-grow;
+}
+
+.card-grid-title {
+  @apply leading-none font-bold text-xl;
+}
+
+.card-grid-meta {
+  @apply text-gray-600 text-base;
+}
+
+.card-grid-description {
+  @apply mt-2 pb-6;
+}
+
+.card-grid-actions {
+  @apply flex text-white text-lg;
+}
+
+.card-grid-btn {
+  @apply w-1/2 bg-eden uppercase font-bold py-1;
+}
+
+.search {
+  @apply relative;
+}
+
+.search-input {
+  @apply w-full shadow px-4 py-2 bg-white;
+}
+
+.search-input:placeholder {
+  @apply text-mercury;
+}
+
+.search-icon {
+  @apply absolute bg-white w-4;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-icon img {
+  @apply w-4;
+}
+
+@screen xl {
+  .card-grid-title {
+    @apply text-3xl;
+  }
+
+  .card-grid-meta {
+    @apply text-lg;
+  }
+}
+
 @tailwind utilities;
