@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         'pt-sans-narrow': ['"PT Sans Narrow"', 'sans-serif'],
         'source-serif': ['"Source Serif Pro"', 'serif'],
+      },
+      maxHeight: {
+        '48': '12rem'
       }
     },
   },

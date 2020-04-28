@@ -12,11 +12,28 @@
 
 <body class="flex flex-col min-h-screen font-pt-sans-narrow">
   {{ partial "navbar.html" . }}
-  <main class="flex-grow">
+  <main class="flex-grow" x-data="setup()">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2/dist/alpine.min.js" defer></script>
+  <script>
+    function setup() {
+      const details = Array.from(document.querySelectorAll('details'));
+
+      document.body.addEventListener('click', event => {
+        details.forEach(detail => {
+          if (!detail.contains(event.target) && detail.hasAttribute('open')) {
+            detail.removeAttribute('open');
+          }
+        })
+      });
+
+      return {
+        grid: true,
+      }
+    }
+  </script>
 </body>
 
 </html>
