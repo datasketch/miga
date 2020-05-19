@@ -47,71 +47,47 @@
         <h2 class="uppercase text-3xl font-bold tracking-wide text-mercury text-center xl:text-4xl">Resultados</h2>
       </div>
       <div class="flex items-center w-1/3 justify-end">
-        <button><img src='{{ "images/grid-view.svg" | absURL }}' alt=""></button>
-        <button class="ml-4"><img src='{{ "images/list-view.svg" | absURL }}' alt=""></button>
+        <button class="focus:outline-none" @click="view = 'grid'">
+          <img v-show="view !== 'grid'" src='{{ "images/grid_unselected.svg" | absURL }}' alt="">
+          <img v-show="view === 'grid'" src='{{ "images/grid_selected.svg" | absURL }}' alt="">
+        </button>
+        <button class="ml-4 focus:outline-none" @click="view = 'list'">
+          <img v-show="view !== 'list'" src='{{ "images/list_unselected.svg" | absURL }}' alt="">
+          <img v-show="view === 'list'" src='{{ "images/list_selected.svg" | absURL }}' alt="">
+        </button>
       </div>
     </div>
     <div class="mt-6">
-      <div class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <template v-if="cards.length">
-          <div class="card-grid" v-for="card in filteredCards">
-            <div class="card-grid-content">
-              <h3 class="card-grid-title">{{ "{{card.title}}" }}</h3>
-              <div class="leading-tight mt-1">
-                <p class="card-grid-meta">Autor: {{ "{{card.author}}" }}</p>
-                <p class="card-grid-meta">Rango de recolección: {{ "{{card.range}}" }}</p>
-                <p class="card-grid-meta">Última actualización: {{"{{card.updated_at | format }}"}}</p>
+      <template v-if="!loading">
+        <div v-show="view === 'grid'" class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <template v-if="filteredCards.length">
+            <div class="card-grid" v-for="card in filteredCards">
+              <div class="card-grid-content">
+                <h3 class="card-grid-title">{{ "{{card.title}}" }}</h3>
+                <div class="leading-tight mt-1">
+                  <p class="card-grid-meta">Autor: {{ "{{card.author}}" }}</p>
+                  <p class="card-grid-meta">Rango de recolección: {{ "{{card.range}}" }}</p>
+                  <p class="card-grid-meta">Última actualización: {{"{{card.updated_at | format }}"}}</p>
+                </div>
+                <div class="card-grid-description">
+                  <p>{{"{{card.description}}"}}</p>
+                </div>
               </div>
-              <div class="card-grid-description">
-                <p>{{"{{card.description}}"}}</p>
+              <div class="card-grid-actions">
+                <button class="card-grid-btn bg-eden">Ver</button>
+                <button class="card-grid-btn bg-elephant">Descargar</button>
               </div>
             </div>
-            <div class="card-grid-actions">
-              <button class="card-grid-btn bg-eden">Ver</button>
-              <button class="card-grid-btn bg-elephant">Descargar</button>
-            </div>
-          </div>
-        </template>
-        <p v-else>No hay resultados</p>
-      </div>
-      <!-- <div class="overflow-x-auto">
-        <table class="w-full table-fixed">
-          <thead>
-            <tr class="bg-elephant text-white text-left text-lg">
-              <th class="px-4 py-2">Nombre</th>
-              <th class="px-4 py-2">Organizaciones</th>
-              <th class="px-4 py-2">Etiquetas</th>
-              <th class="px-4 py-2">Fecha creación</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="px-4 py-2 truncate">Datos de consumo individual de alimentos</td>
-              <td class="px-4 py-2">Miga</td>
-              <td class="px-4 py-2 truncate">alimentos, consumo</td>
-              <td class="px-4 py-2">2020-12-31</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 truncate">Datos de consumo individual de alimentos</td>
-              <td class="px-4 py-2">Miga</td>
-              <td class="px-4 py-2 truncate">alimentos, consumo</td>
-              <td class="px-4 py-2">2020-12-31</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 truncate">Datos de consumo individual de alimentos</td>
-              <td class="px-4 py-2">Miga</td>
-              <td class="px-4 py-2 truncate">alimentos, consumo</td>
-              <td class="px-4 py-2">2020-12-31</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-2 truncate">Datos de consumo individual de alimentos</td>
-              <td class="px-4 py-2">Miga</td>
-              <td class="px-4 py-2 truncate">alimentos, consumo</td>
-              <td class="px-4 py-2">2020-12-31</td>
-            </tr>
-          </tbody>
-        </table>
-      </div> -->
+          </template>
+        </div>
+        <div v-show="view === 'list'" class="overflow-x-auto">
+          {{ partial "list_view.html" . }}
+        </div>
+        <p v-show="!filteredCards.length" class="text-center">No hay resultados</p>
+      </template>
+      <template v-else>
+        <p class="text-center">Cargando...</p>
+      </template>
     </div>
   </div>
 </div>

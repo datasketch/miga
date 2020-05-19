@@ -19,6 +19,8 @@ new Vue({
   },
   data() {
     return {
+      loading: true,
+      view: 'grid',
       cards: [],
       selectedOrganization: '',
       search: '',
@@ -58,6 +60,7 @@ new Vue({
         updated_at: row.ultima_actualizacion,
         description: row.descripcion,
       }));
+      this.loading = false
     } catch (error) {
       console.error(error);
     }

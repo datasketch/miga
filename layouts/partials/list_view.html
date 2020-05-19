@@ -1,0 +1,23 @@
+<table v-if="filteredCards.length" class="w-full table-auto">
+  <thead>
+    <tr class="bg-elephant text-white text-left text-lg">
+      <th class="px-4 py-2">Nombre</th>
+      <th class="px-4 py-2">Autor</th>
+      <th class="px-4 py-2">Rango de recolección</th>
+      <th class="px-4 py-2">Última actualización</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="card in filteredCards">
+      <td class="px-4 py-2 truncate" :title="card.title">{{ "{{card.title}}" }}</td>
+      <td class="px-4 py-2">{{ "{{card.author}}" }}</td>
+      <td class="px-4 py-2">{{ "{{card.range}}" }}</td>
+      <td class="px-4 py-2">{{ "{{card.updated_at | format}}" }}</td>
+      <td class="px-4 py-2">
+        <button class="uppercase text-sm text-eden">Ver</button>
+        <button class="uppercase text-sm text-elephant">Descargar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
