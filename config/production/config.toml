@@ -1,0 +1,4 @@
+baseURL = "https://datasketch.github.io/miga"
+languageCode = "es-es"
+title = "Miga"
+publishDir = "docs"

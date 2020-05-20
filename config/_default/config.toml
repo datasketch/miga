@@ -1,0 +1,4 @@
+baseURL = "/miga"
+languageCode = "es-es"
+title = "Miga"
+publishDir = "docs"
