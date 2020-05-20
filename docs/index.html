@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="generator" content="Hugo 0.70.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Miga · Repositorio de datos alimenticios</title>
+  
+  <meta property="og:title" content="Miga · Repositorio de datos alimenticios" />
+<meta property="og:description" content="Encuentra conjuntos de datos accesibles, estandarizados y reutilizables asociados a la alimentación y agricultura en Bolivia." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="//datasketch.github.io/miga/" />
+<meta property="og:image" content="//datasketch.github.io/miga/images/bg.webp" />
+<meta property="og:updated_time" content="2020-05-20T11:34:27-05:00" />
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="//datasketch.github.io/miga/images/bg.webp"/>
+
+<meta name="twitter:title" content="Miga · Repositorio de datos alimenticios"/>
+<meta name="twitter:description" content="Encuentra conjuntos de datos accesibles, estandarizados y reutilizables asociados a la alimentación y agricultura en Bolivia."/>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Source+Serif+Pro:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  
+  <link rel="stylesheet" href="//datasketch.github.io/miga/styles/tailwind.css">
+</head>
+
+<body class="flex flex-col min-h-screen font-pt-sans-narrow">
+  <nav class="flex items-center justify-end px-4 py-2 absolute top-0 left-0 w-full">
+  <a  class="ml-4" href="" target="_blank">
+    <img src='//datasketch.github.io/miga/images/tw.svg' alt="">
+  </a>
+  <a  class="ml-4" href="" target="_blank">
+    <img src='//datasketch.github.io/miga/images/mail.svg' alt="">
+  </a>
+  <a  class="ml-4" href="" target="_blank">
+    <img src='//datasketch.github.io/miga/images/fb.svg' alt="">
+  </a>
+</nav>
+  <main class="flex-grow" id="app">
+    
+<div class="hero">
+  <div class="flex flex-col w-full items-center md:w-5/6 md:flex-row md:items-start md:mx-auto">
+    <img class="w-40" src='//datasketch.github.io/miga/images/logo.svg' alt="">
+    <div class="text-white border border-white mt-16 md:mt-0 md:ml-16 xl:ml-32">
+      <h1 class="px-8 py-4 text-3xl border-b border-white leading-none font-source-serif md:text-4xl xl:text-5xl">
+        <span>Repositorio de</span>
+        <span class="block font-bold">Datos Alimenticios</span>
+      </h1>
+      <p class="px-8 py-4 text-lg sm:max-w-md md:max-w-xl xl:text-xl">
+        MIGA Bolivia mantiene entre sus metas la revalorización y
+        promoción del patrimonio alimentario regional boliviano.
+        En el Repositorio MIGA podra encontrar conjuntos de datos
+        accesibles, estandarizados y reutilizables asociados a la
+        alimentación y agricultura en Bolivia.
+      </p>
+      <div class="flex border-t border-white">
+        <div
+          class="flex flex-col leading-none py-4 px-8 w-1/2 text-center border-r border-white text-xl md:flex-row md:items-baseline md:justify-center">
+          <span class="text-4xl font-source-serif font-semibold md:text-5xl xl:text-6xl">{{cards.length | leading}}</span>
+          <span class="md:ml-1">Datasets</span>
+        </div>
+        <div
+          class="flex flex-col leading-none py-4 px-8 w-1/2 text-center text-xl md:flex-row md:items-baseline md:justify-center">
+          <span class="text-4xl font-source-serif font-semibold md:text-5xl xl:text-6xl">{{organizations.length | leading}}</span>
+          <span class="md:ml-1">Organizaciones</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-16 bg-paper px-4">
+  <div class="md:mx-auto md:w-5/6">
+    <div>
+      <p class="uppercase text-elephant font-bold text-xl tracking-wider">Filtros</p>
+      <div class="mt-2 items-start grid gap-4 grid-cols-1 md:grid-cols-3 md:gap-6 lg:gap-10">
+        <div class="flex flex-col">
+  <details class="relative" v-detail-away>
+  	<summary aria-haspopup="listbox" class="bg-eden text-white cursor-pointer flex justify-between list-none select-none py-2 px-4">
+      <span class="dropdown-label">Organizaciones</span>
+      <svg class="w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+  	</summary>
+  	<ul class="list-none m-0 py-2 px-0 bg-white max-h-48 shadow absolute w-full z-10 overflow-y-auto" role="listbox">
+      <li class="py-2 px-4 cursor-pointer hover:bg-gray-200" @click="filterByOrganization('')">Todas</li>
+  		<li v-for="org in organizations" role="option" class="py-2 px-4 cursor-pointer hover:bg-gray-200 truncate" @click="filterByOrganization(org)">{{ org }}</li>
+    </ul>
+  </details>
+  <span class="text-sm">Filtrar por: <strong>{{selectedOrganization || &#39;Todas&#39;}}</strong></span>
+</div>
+        <div class="search">
+          <input type="text" v-model="search" class="search-input" placeholder="Buscar dataset">
+          <img src='//datasketch.github.io/miga/images/search.svg' alt="" class="search-icon">
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-end mt-6">
+      <div class="w-1/3">
+        <h2 class="uppercase text-3xl font-bold tracking-wide text-mercury text-center xl:text-4xl">Resultados</h2>
+      </div>
+      <div class="flex items-center w-1/3 justify-end">
+        <button class="focus:outline-none" @click="view = 'grid'">
+          <img v-show="view !== 'grid'" src='//datasketch.github.io/miga/images/grid_unselected.svg' alt="">
+          <img v-show="view === 'grid'" src='//datasketch.github.io/miga/images/grid_selected.svg' alt="">
+        </button>
+        <button class="ml-4 focus:outline-none" @click="view = 'list'">
+          <img v-show="view !== 'list'" src='//datasketch.github.io/miga/images/list_unselected.svg' alt="">
+          <img v-show="view === 'list'" src='//datasketch.github.io/miga/images/list_selected.svg' alt="">
+        </button>
+      </div>
+    </div>
+    <div class="mt-6">
+      <template v-if="!loading">
+        <div v-show="view === 'grid'" class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <template v-if="filteredCards.length">
+            <div class="card-grid" v-for="card in filteredCards">
+              <div class="card-grid-content">
+                <h3 class="card-grid-title">{{card.title}}</h3>
+                <div class="leading-tight mt-1">
+                  <p class="card-grid-meta">Autor: {{card.author}}</p>
+                  <p class="card-grid-meta">Rango de recolección: {{card.range}}</p>
+                  <p class="card-grid-meta">Última actualización: {{card.updated_at | format }}</p>
+                </div>
+                <div class="card-grid-description">
+                  <p>{{card.description}}</p>
+                </div>
+              </div>
+              <div class="card-grid-actions">
+                <a :href="card.link" rel="noopener noreferrer" target="_blank" class="card-grid-btn bg-eden text-xl">Ver</a>
+              </div>
+            </div>
+          </template>
+        </div>
+        <div v-show="view === 'list'" class="overflow-x-auto">
+          <table v-if="filteredCards.length" class="w-full table-auto">
+  <thead>
+    <tr class="bg-elephant text-white text-left text-lg">
+      <th class="px-4 py-2">Nombre</th>
+      <th class="px-4 py-2">Autor</th>
+      <th class="px-4 py-2">Rango de recolección</th>
+      <th class="px-4 py-2">Última actualización</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="card in filteredCards">
+      <td class="px-4 py-2 truncate" :title="card.title">{{card.title}}</td>
+      <td class="px-4 py-2">{{card.author}}</td>
+      <td class="px-4 py-2">{{card.range}}</td>
+      <td class="px-4 py-2">{{card.updated_at | format}}</td>
+      <td class="px-4 py-2">
+        <a :href="card.link" target="_blank" rel="noopener noreferrer" class="uppercase font-bold text-eden tracking-wide">Ver</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        <p v-show="!filteredCards.length" class="text-center">No hay resultados</p>
+      </template>
+      <template v-else>
+        <p class="text-center">Cargando...</p>
+      </template>
+    </div>
+  </div>
+</div>
+
+  </main>
+  <footer>
+  <div style="background-image: url(/images/footer.png);" class="h-12 bg-cover bg-no-repeat bg-center"></div>
+  <div class="flex flex-wrap items-center bg-mine-shaft px-16 py-12">
+    <div class="w-full md:w-1/3 flex flex-col items-center text-white">
+      <img class="w-24" src='//datasketch.github.io/miga/images/logo.svg' alt="">
+    </div>
+    <div class="w-full md:w-1/3 flex flex-col items-center text-white mt-10 md:mt-0">
+      <p class="uppercase text-xl font-bold">Comparte</p>
+      <div class="flex items-center mt-4">
+        <a class="mr-4" href="https://twitter.com/datasketch" target="_blank" rel="noopener noreferrer">
+          <img src='//datasketch.github.io/miga/images/tw.svg' alt="">
+        </a>
+        <a class="mr-4" href="mailto:info@datasketch.co">
+          <img src='//datasketch.github.io/miga/images/mail.svg' alt="">
+        </a>
+        <a class="mr-0" href="https://es-la.facebook.com/datasketch/" target="_blank" rel="noopener noreferrer">
+          <img src='//datasketch.github.io/miga/images/fb.svg' alt="">
+        </a>
+      </div>
+    </div>
+    <div class="w-full md:w-1/3 flex flex-col items-center text-white mt-10 md:mt-0">
+      <div class="flex items-center">
+        <img class="mr-4" src='//datasketch.github.io/miga/images/cc.svg'>
+        <img class="mr-4" src='//datasketch.github.io/miga/images/by.svg'>
+        <img class="mr-0" src='//datasketch.github.io/miga/images/sa.svg'>
+      </div>
+      <p class="mt-4 w-64 font-pt-sans-narrow text-sm">Todo el material en esta página es <a
+          href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>. Si reusas o adaptas recursos de esta
+        página, por favor vincula y referencia nuestro artículo o sitio web.</p>
+    </div>
+  </div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src='//datasketch.github.io/miga/js/default.js'></script>
+</body>
+
+</html>

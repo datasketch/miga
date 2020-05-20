@@ -1,3 +1,4 @@
-baseURL = "/"
+baseURL = "//datasketch.github.io/miga"
 languageCode = "en-us"
 title = "Miga"
+publishDir = "docs"
