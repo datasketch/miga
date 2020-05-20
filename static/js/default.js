@@ -53,8 +53,8 @@ new Vue({
       }
       return cards.filter(
         (card) =>
-          card.title.includes(this.search) ||
-          card.description.includes(this.search)
+          card.title.toLowerCase().includes(this.search.toLowerCase()) ||
+          card.description.toLowerCase().includes(this.search.toLowerCase())
       );
     },
   },
