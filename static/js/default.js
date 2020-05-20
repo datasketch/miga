@@ -16,6 +16,18 @@ new Vue({
       const date = new Date(value);
       return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     },
+    leading(value) {
+      if (!value) {
+        return '';
+      }
+      const division = value / 10;
+      if (division >= 1 || division < 10) {
+        return `0${value}`;
+      } else if (division < 1) {
+        return `00${value}`;
+      }
+      return value;
+    },
   },
   data() {
     return {
@@ -59,16 +71,16 @@ new Vue({
         range: row.rango_de_recoleccion,
         updated_at: row.ultima_actualizacion,
         description: row.descripcion,
-        link: row.enlace
+        link: row.enlace,
       }));
-      this.loading = false
+      this.loading = false;
     } catch (error) {
       console.error(error);
     }
   },
   methods: {
     filterByOrganization(org) {
-      document.querySelector('details[open]').removeAttribute('open')
+      document.querySelector('details[open]').removeAttribute('open');
       this.selectedOrganization = org;
     },
   },
