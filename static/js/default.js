@@ -59,6 +59,7 @@ new Vue({
         range: row.rango_de_recoleccion,
         updated_at: row.ultima_actualizacion,
         description: row.descripcion,
+        link: row.enlace
       }));
       this.loading = false
     } catch (error) {

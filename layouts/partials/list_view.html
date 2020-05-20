@@ -15,8 +15,7 @@
       <td class="px-4 py-2">{{ "{{card.range}}" }}</td>
       <td class="px-4 py-2">{{ "{{card.updated_at | format}}" }}</td>
       <td class="px-4 py-2">
-        <button class="uppercase text-sm text-eden">Ver</button>
-        <button class="uppercase text-sm text-elephant">Descargar</button>
+        <a :href="card.link" target="_blank" rel="noopener noreferrer" class="uppercase font-bold text-eden tracking-wide">Ver</a>
       </td>
     </tr>
   </tbody>
