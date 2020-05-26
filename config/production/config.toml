@@ -1,4 +1,4 @@
-baseURL = "https://datasketch.github.io/miga"
+baseURL = "https://repomiga.org.bo/"
 languageCode = "es-es"
 title = "Miga"
 publishDir = "docs"
